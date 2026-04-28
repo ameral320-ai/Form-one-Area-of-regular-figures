@@ -1,9 +1,11 @@
+Here is the corrected HTML document with the requested slide order, a title slide, and clear geometric figures without labels.
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Area Mastery | Squares to Shapes | Tanzania Form One</title>
+    <title>Area of Regular Figures | Tanzania Form One with Audio</title>
     <style>
         * {
             margin: 0;
@@ -97,7 +99,7 @@
             padding: 1rem;
             text-align: center;
             flex: 1;
-            min-width: 180px;
+            min-width: 150px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
@@ -144,6 +146,16 @@
             transform: scale(0.97);
         }
 
+        .audio-btn {
+            background: #f4b942;
+            color: #1e462a;
+            margin-left: 10px;
+        }
+
+        .audio-btn:hover {
+            background: #e09d1e;
+        }
+
         .nav-buttons {
             display: flex;
             justify-content: space-between;
@@ -180,15 +192,19 @@
             border-left: 4px solid #dc3545;
         }
 
-        .demo-badge {
-            background: #f4b942;
-            color: #1e462a;
+        .pdf-link {
             display: inline-block;
-            padding: 3px 12px;
-            border-radius: 20px;
-            font-size: 0.7rem;
+            background: #1e462a;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 60px;
+            text-decoration: none;
+            margin-top: 1rem;
             font-weight: bold;
-            margin-left: 10px;
+        }
+
+        .pdf-link:hover {
+            background: #0f2a1a;
         }
 
         footer {
@@ -207,10 +223,55 @@
 </head>
 <body>
 <div class="container">
-    <!-- ==================== PHASE 1: PRIOR KNOWLEDGE (Slides 1-2) ==================== -->
-    
-    <!-- SLIDE 1: The SQUARE Concept -->
+    <!-- SLIDE 1: TITLE SLIDE with "THE AREA OF REGULAR FIGURES" -->
     <div class="slide active" id="slide1">
+        <div class="phase-badge">🎓 FORM ONE MATHEMATICS</div>
+        <h1 style="font-size: 2.2rem;">📐 THE AREA OF REGULAR FIGURES</h1>
+        <h2>Rectangle · Parallelogram · Triangle</h2>
+        <div class="fig-card">
+            <canvas id="titleDecorCanvas" width="200" height="100"></canvas>
+            <p>Tanzania Competence-Based Curriculum</p>
+        </div>
+        <div class="formula-card">✨ Learning Area by Counting Unit Squares ✨</div>
+        <button id="titleAudioBtn" class="audio-btn">🔊 Listen to Introduction</button>
+    </div>
+
+    <!-- SLIDE 2: Four Figures (NO NAMES, just shapes) - Rectangle, Parallelogram, Triangle, Square -->
+    <div class="slide" id="slide2">
+        <div class="phase-badge">🔍 PHASE 1: RECOGNIZING SHAPES</div>
+        <h2>🔎 What Are These Shapes?</h2>
+        <div class="figure-grid">
+            <div class="fig-card">
+                <canvas id="shapeRectCanvas" width="120" height="80"></canvas>
+                <p style="margin-top:8px;">Shape A</p>
+            </div>
+            <div class="fig-card">
+                <canvas id="shapeParaCanvas" width="120" height="80"></canvas>
+                <p style="margin-top:8px;">Shape B</p>
+            </div>
+            <div class="fig-card">
+                <canvas id="shapeTriCanvas" width="120" height="80"></canvas>
+                <p style="margin-top:8px;">Shape C</p>
+            </div>
+            <div class="fig-card">
+                <canvas id="shapeSquareCanvas" width="80" height="80"></canvas>
+                <p style="margin-top:8px;">Shape D</p>
+            </div>
+        </div>
+        <div class="activity-box">
+            <strong>✏️ Name Each Shape (No labels shown — use your knowledge!)</strong><br>
+            Shape A: <input type="text" id="shapeAName" placeholder="Type name" style="width:120px">
+            Shape B: <input type="text" id="shapeBName" placeholder="Type name" style="width:120px">
+            Shape C: <input type="text" id="shapeCName" placeholder="Type name" style="width:120px">
+            Shape D: <input type="text" id="shapeDName" placeholder="Type name" style="width:120px"><br>
+            <button id="shapeCheckBtn">Check Answers</button>
+            <div id="shapeFeedback" class="feedback"></div>
+        </div>
+        <button id="slide2AudioBtn" class="audio-btn">🔊 Listen to Shape Recognition</button>
+    </div>
+
+    <!-- SLIDE 3: The UNIT SQUARE (Foundation of Area) -->
+    <div class="slide" id="slide3">
         <div class="phase-badge">🔍 PHASE 1: PRIOR KNOWLEDGE</div>
         <h1>🟩 The Unit Square: The Building Block of Area</h1>
         <div class="figure-grid">
@@ -224,432 +285,388 @@
             </div>
         </div>
         <div class="intuition-box">
-            💡 <strong>THE BIG IDEA:</strong> Area = How many unit squares fit inside a shape!
+            💡 <strong>THE BIG IDEA:</strong> Area = How many unit squares fit inside a shape!<br>
+            🌟 Just like counting tiles on a floor.
         </div>
         <div class="activity-box">
             <strong>📝 ACTIVITY: Count the Unit Squares</strong><br>
-            How many small squares (1 cm² each) fit inside the rectangle?<br>
+            How many small squares (1 cm² each) fit inside the rectangle on the right?<br>
             <input type="number" id="countSquaresInput" placeholder="Enter number">
             <button id="countSquaresBtn">Check Answer</button>
             <div id="countSquaresFeedback" class="feedback"></div>
         </div>
+        <button id="slide3AudioBtn" class="audio-btn">🔊 Listen to Unit Square Concept</button>
+        <div class="formula-card">✨ Area = length × width for rectangles (counting rows × columns of squares)</div>
     </div>
 
-    <!-- SLIDE 2: Recognizing Shapes (No labels) -->
-    <div class="slide" id="slide2">
-        <div class="phase-badge">🔍 PHASE 1: PRIOR KNOWLEDGE</div>
-        <h2>🔎 What Are These Shapes?</h2>
-        <div class="figure-grid">
-            <div class="fig-card"><canvas id="shapeRectCanvas" width="140" height="90"></canvas><p>Shape A</p></div>
-            <div class="fig-card"><canvas id="shapeParaCanvas" width="140" height="90"></canvas><p>Shape B</p></div>
-            <div class="fig-card"><canvas id="shapeTriCanvas" width="140" height="90"></canvas><p>Shape C</p></div>
-        </div>
-        <div class="activity-box">
-            <strong>✏️ Name Each Shape</strong><br>
-            Shape A: <input type="text" id="shapeAName" placeholder="Type name"> 
-            Shape B: <input type="text" id="shapeBName" placeholder="Type name">
-            Shape C: <input type="text" id="shapeCName" placeholder="Type name"><br>
-            <button id="shapeCheckBtn">Check Answers</button>
-            <div id="shapeFeedback" class="feedback"></div>
-        </div>
-    </div>
-
-    <!-- ==================== PHASE 2: DEVELOP COMPETENCE (Slides 3-5) ==================== -->
-    
-    <!-- SLIDE 3: Rectangle Area -->
-    <div class="slide" id="slide3">
+    <!-- SLIDE 4: Rectangle Area -->
+    <div class="slide" id="slide4">
         <div class="phase-badge">📈 PHASE 2: DEVELOP COMPETENCE</div>
         <h2>📏 Rectangle Area = length × width</h2>
-        <div class="fig-card"><canvas id="rectGridCanvas" width="220" height="140"></canvas><p>8 columns × 5 rows = 40 unit squares</p></div>
-        <div class="formula-card">✨ Rectangle Area = length × width</div>
+        <canvas id="rectCanvas" width="220" height="130"></canvas>
+        <div class="formula-card">✨ Area = length × width</div>
+        <button id="rectAudioBtn" class="audio-btn">🔊 Listen to Rectangle Formula</button>
         <div class="activity-box">
-            <strong>Practice: Length = 8 cm, Width = 5 cm → Area = ?</strong><br>
+            <strong>Practice: Length = 8 cm, Width = 5 cm</strong><br>
             <input type="number" id="rectAnswer" placeholder="Area in cm²">
             <button id="rectCheckBtn">Check</button>
             <div id="rectFeedback" class="feedback"></div>
         </div>
     </div>
 
-    <!-- SLIDE 4: Parallelogram - FLEXIBLE (Transform to Rectangle) -->
-    <div class="slide" id="slide4">
+    <!-- SLIDE 5: Parallelogram (Flexible) -->
+    <div class="slide" id="slide5">
         <div class="phase-badge">📈 PHASE 2: DEVELOP COMPETENCE</div>
         <h2>📐 Parallelogram Area = base × height</h2>
-        <div class="fig-card">
-            <canvas id="paraCanvasMain" width="280" height="180"></canvas>
-            <div class="shape-controls">
-                <button id="transformParaBtn">➡️ Transform to Rectangle</button>
-                <button id="resetParaBtn">🔄 Reset Parallelogram</button>
-            </div>
-            <p id="paraAreaLabel" style="margin-top:8px; font-weight:bold;">Area = Base × Height = 48 square units</p>
+        <canvas id="paraCanvas" width="280" height="180"></canvas>
+        <div class="shape-controls">
+            <button id="transformParaBtn">➡️ Transform to Rectangle</button>
+            <button id="resetParaBtn">🔄 Reset</button>
         </div>
-        <div class="intuition-box">🧩 Cut a triangle, slide it → becomes a RECTANGLE! Same area.</div>
+        <button id="paraAudioBtn" class="audio-btn">🔊 Listen to Parallelogram</button>
         <div class="activity-box">
-            <strong>Practice: Base = 9 m, Height = 4 m → Area = ?</strong><br>
+            <strong>Practice: Base = 9 m, Height = 4 m</strong><br>
             <input type="number" id="paraAnswer" placeholder="Area in m²">
             <button id="paraCheckBtn">Check</button>
             <div id="paraFeedback" class="feedback"></div>
         </div>
     </div>
 
-    <!-- SLIDE 5: Triangle Area (Using Square Concept) -->
-    <div class="slide" id="slide5">
+    <!-- SLIDE 6: Triangle using Squares Concept -->
+    <div class="slide" id="slide6">
         <div class="phase-badge">📈 PHASE 2: DEVELOP COMPETENCE</div>
-        <h2>🔺 Triangle Area = ½ × base × height</h2>
+        <h2>🔺 Triangle = ½ × base × height</h2>
         <div class="figure-grid">
-            <div class="fig-card"><canvas id="triSquareCanvas" width="200" height="140"></canvas><p>Rectangle: 8×6 = 48 squares</p></div>
-            <div class="fig-card"><canvas id="triHalfCanvas" width="200" height="140"></canvas><p>Triangle = Half = 24 squares</p></div>
+            <div class="fig-card">
+                <canvas id="triFullCanvas" width="180" height="130"></canvas>
+                <p>Rectangle: 8×6 = 48 squares</p>
+            </div>
+            <div class="fig-card">
+                <canvas id="triHalfCanvas" width="180" height="130"></canvas>
+                <p>Triangle = Half = 24 squares</p>
+            </div>
         </div>
-        <div class="intuition-box">✂️ A triangle is EXACTLY HALF of a rectangle with same base and height!</div>
+        <button id="triAudioBtn" class="audio-btn">🔊 Listen to Triangle Concept</button>
         <div class="activity-box">
-            <strong>Practice: Base = 12 cm, Height = 6 cm → Area = ?</strong><br>
+            <strong>Practice: Base = 12 cm, Height = 6 cm</strong><br>
             <input type="number" id="triAnswer" placeholder="Area in cm²">
             <button id="triCheckBtn">Check</button>
             <div id="triFeedback" class="feedback"></div>
         </div>
+        <div class="formula-card">✨ Triangle Area = ½ × base × height (half of a rectangle!)</div>
     </div>
 
-    <!-- ==================== PHASE 3: DESIGN COMPETENCE (Slides 6-7) ==================== -->
-    
-    <!-- SLIDE 6: Garden Design -->
-    <div class="slide" id="slide6">
+    <!-- SLIDE 7: Design Competence - Garden -->
+    <div class="slide" id="slide7">
         <div class="phase-badge">🎨 PHASE 3: DESIGN COMPETENCE</div>
         <h2>🌱 Design a Garden</h2>
+        <button id="gardenAudioBtn" class="audio-btn">🔊 Listen to Problem</button>
         <div class="activity-box">
-            <strong>Problem:</strong> Rectangular garden 10 m × 6 m. Triangular flower bed (base 4 m, height 3 m).<br>
-            <strong>What area for vegetables?</strong><br>
+            Rectangular garden: 10 m × 6 m. Triangular flower bed: base 4 m, height 3 m. Remaining area for vegetables?<br>
             <input type="number" id="gardenInput" placeholder="Remaining area (m²)">
             <button id="gardenBtn">Check</button>
             <div id="gardenFeedback" class="feedback"></div>
         </div>
     </div>
 
-    <!-- SLIDE 7: Playground Challenge -->
-    <div class="slide" id="slide7">
+    <!-- SLIDE 8: Design Competence - Playground -->
+    <div class="slide" id="slide8">
         <div class="phase-badge">🎨 PHASE 3: DESIGN COMPETENCE</div>
         <h2>🏞️ Playground Total Area</h2>
+        <button id="playgroundAudioBtn" class="audio-btn">🔊 Listen to Challenge</button>
         <div class="activity-box">
-            <strong>Combine shapes:</strong> Lawn 8×5, Sandpit (base 4, h=3), Flower (base 6, h=2)<br>
+            Lawn: 8×5, Sandpit: base4 height3, Flower: base6 height2. Total area?<br>
             <input type="number" id="playgroundInput" placeholder="Total area (m²)">
             <button id="playgroundBtn">Check</button>
             <div id="playgroundFeedback" class="feedback"></div>
         </div>
     </div>
 
-    <!-- ==================== PHASE 4: REALISATION (Slides 8-10) ==================== -->
-    
-    <!-- SLIDE 8: Farmer Juma -->
-    <div class="slide" id="slide8">
+    <!-- SLIDE 9: Realisation - Farmer -->
+    <div class="slide" id="slide9">
         <div class="phase-badge">🏆 PHASE 4: REALISATION</div>
         <h2>🌾 Farmer Juma's Field</h2>
+        <button id="farmerAudioBtn" class="audio-btn">🔊 Listen to Problem</button>
         <div class="activity-box">
-            <strong>Rectangular field: 40×25 m.</strong> Maize (triangle b=20,h=15), Veg (parallelogram b=15,h=10). Find bean area.<br>
+            Field: 40×25. Maize: triangle base20 height15. Veg: parallelogram base15 height10. Bean area?<br>
             <input type="number" id="farmerInput" placeholder="Bean area (m²)">
             <button id="farmerBtn">Check</button>
             <div id="farmerFeedback" class="feedback"></div>
         </div>
     </div>
 
-    <!-- SLIDE 9: Construction Cost -->
-    <div class="slide" id="slide9">
+    <!-- SLIDE 10: Realisation - Construction -->
+    <div class="slide" id="slide10">
         <div class="phase-badge">🏆 PHASE 4: REALISATION</div>
         <h2>🏗️ Construction Cost</h2>
+        <button id="costAudioBtn" class="audio-btn">🔊 Listen to Problem</button>
         <div class="activity-box">
-            <strong>Wall 12×4 m, triangular window (b=3,h=2). Paint = 5,000 Tsh/m². Total cost?</strong><br>
+            Wall: 12×4, Window: triangle base3 height2. Paint cost: 5000 Tsh/m².<br>
             <input type="number" id="costInput" placeholder="Cost in Tsh">
-            <button id="costBtn">Calculate</button>
+            <button id="costBtn">Check</button>
             <div id="costFeedback" class="feedback"></div>
         </div>
     </div>
 
-    <!-- SLIDE 10: Mastery Celebration -->
-    <div class="slide" id="slide10">
-        <div class="phase-badge">⭐ MASTERY ACHIEVED</div>
-        <h2>🎉 Congratulations!</h2>
-        <div class="formula-card">You have mastered area of rectangles, parallelograms, and triangles!</div>
-        <div class="activity-box">
-            <strong>Final Reflection:</strong><br>
-            <textarea id="reflectionInput" rows="3" cols="50" placeholder="How will you use area in real life?"></textarea><br>
-            <button id="finishBtn">Complete Journey</button>
-            <div id="completeFeedback" class="feedback"></div>
-        </div>
-    </div>
-
-    <!-- ==================== NEW DEMONSTRATION SLIDES (Slides 11-15) ==================== -->
-    
-    <!-- SLIDE 11: DEMO - Rectangle Challenge -->
+    <!-- SLIDE 11: Understanding Demo 1 - Match Formulas -->
     <div class="slide" id="slide11">
-        <div class="phase-badge">🏅 DEMONSTRATE UNDERSTANDING <span class="demo-badge">Rectangle Expert</span></div>
-        <h2>📏 Rectangle Challenge: Find the Missing Side</h2>
-        <div class="fig-card">
-            <canvas id="demoRectCanvas" width="200" height="120"></canvas>
-            <p>A rectangle has area = 72 cm² and width = 6 cm. What is the length?</p>
-        </div>
+        <div class="phase-badge">📌 DEMONSTRATING UNDERSTANDING</div>
+        <h2>✏️ Activity: Match the Formula</h2>
+        <button id="demo1AudioBtn" class="audio-btn">🔊 Listen to Instructions</button>
         <div class="activity-box">
-            <strong>Length = ?</strong> (Hint: Area = length × width)<br>
-            <input type="number" id="demoRectInput" placeholder="Length in cm">
-            <button id="demoRectBtn">Check Answer</button>
-            <div id="demoRectFeedback" class="feedback"></div>
+            Rectangle → <input type="text" id="matchRect" placeholder="A/B/C" style="width:50px"> (A: l×w, B: b×h, C: ½×b×h)<br>
+            Parallelogram → <input type="text" id="matchPara" placeholder="A/B/C" style="width:50px"><br>
+            Triangle → <input type="text" id="matchTri" placeholder="A/B/C" style="width:50px"><br>
+            <button id="matchBtn">Check</button>
+            <div id="matchFeedback" class="feedback"></div>
         </div>
-        <div class="formula-card">💡 length = Area ÷ width</div>
     </div>
 
-    <!-- SLIDE 12: DEMO - Parallelogram Challenge -->
+    <!-- SLIDE 12: Understanding Demo 2 - Find Missing Side -->
     <div class="slide" id="slide12">
-        <div class="phase-badge">🏅 DEMONSTRATE UNDERSTANDING <span class="demo-badge">Parallelogram Expert</span></div>
-        <h2>📐 Parallelogram Challenge: Find the Height</h2>
-        <div class="fig-card">
-            <canvas id="demoParaCanvas" width="220" height="140"></canvas>
-            <p>A parallelogram has area = 84 m² and base = 12 m. What is the height?</p>
-        </div>
+        <div class="phase-badge">📌 DEMONSTRATING UNDERSTANDING</div>
+        <h2>📐 Find the Missing Side</h2>
+        <button id="demo2AudioBtn" class="audio-btn">🔊 Listen to Problem</button>
         <div class="activity-box">
-            <strong>Height = ?</strong> (Hint: Area = base × height)<br>
-            <input type="number" id="demoParaInput" placeholder="Height in m">
-            <button id="demoParaBtn">Check Answer</button>
-            <div id="demoParaFeedback" class="feedback"></div>
+            Rectangle area = 56 cm², length = 8 cm. What is width?<br>
+            <input type="number" id="missingWidth" placeholder="Width in cm">
+            <button id="missingBtn">Check</button>
+            <div id="missingFeedback" class="feedback"></div>
         </div>
-        <div class="formula-card">💡 height = Area ÷ base</div>
     </div>
 
-    <!-- SLIDE 13: DEMO - Triangle Challenge -->
+    <!-- SLIDE 13: Understanding Demo 3 - Compare Areas -->
     <div class="slide" id="slide13">
-        <div class="phase-badge">🏅 DEMONSTRATE UNDERSTANDING <span class="demo-badge">Triangle Expert</span></div>
-        <h2>🔺 Triangle Challenge: Find the Base</h2>
-        <div class="fig-card">
-            <canvas id="demoTriCanvas" width="200" height="120"></canvas>
-            <p>A triangle has area = 50 cm² and height = 10 cm. What is the base?</p>
-        </div>
+        <div class="phase-badge">📌 DEMONSTRATING UNDERSTANDING</div>
+        <h2>🏆 Which is Larger?</h2>
+        <button id="demo3AudioBtn" class="audio-btn">🔊 Listen to Problem</button>
         <div class="activity-box">
-            <strong>Base = ?</strong> (Hint: Area = ½ × base × height)<br>
-            <input type="number" id="demoTriInput" placeholder="Base in cm">
-            <button id="demoTriBtn">Check Answer</button>
-            <div id="demoTriFeedback" class="feedback"></div>
-        </div>
-        <div class="formula-card">💡 base = (2 × Area) ÷ height</div>
-    </div>
-
-    <!-- SLIDE 14: DEMO - Mixed Shapes Comparison -->
-    <div class="slide" id="slide14">
-        <div class="phase-badge">🏅 DEMONSTRATE UNDERSTANDING <span class="demo-badge">Comparison Expert</span></div>
-        <h2>📊 Which Shape Has Larger Area?</h2>
-        <div class="figure-grid">
-            <div class="fig-card">
-                <canvas id="compareRect" width="120" height="80"></canvas>
-                <p>Rectangle: 9m × 5m</p>
-            </div>
-            <div class="fig-card">
-                <canvas id="comparePara" width="120" height="80"></canvas>
-                <p>Parallelogram: b=10m, h=4.5m</p>
-            </div>
-            <div class="fig-card">
-                <canvas id="compareTri" width="120" height="80"></canvas>
-                <p>Triangle: b=15m, h=6m</p>
-            </div>
-        </div>
-        <div class="activity-box">
-            <strong>Which shape has the LARGEST area?</strong> (Type: rectangle, parallelogram, or triangle)<br>
-            <input type="text" id="compareInput" placeholder="Enter shape name">
-            <button id="compareBtn">Check Comparison</button>
+            Shape A: Triangle, base=10, height=8. Shape B: Parallelogram, base=8, height=5. Which has larger area?<br>
+            <input type="text" id="compareArea" placeholder="Type A or B">
+            <button id="compareBtn">Check</button>
             <div id="compareFeedback" class="feedback"></div>
         </div>
     </div>
 
-    <!-- SLIDE 15: DEMO - Real-Life Application -->
-    <div class="slide" id="slide15">
-        <div class="phase-badge">🏅 DEMONSTRATE UNDERSTANDING <span class="demo-badge">Real-World Expert</span></div>
-        <h2>🏡 Real-Life: Painting a House Wall</h2>
-        <div class="fig-card">
-            <canvas id="realCanvas" width="220" height="160"></canvas>
-            <p>Wall with a triangular window</p>
-        </div>
+    <!-- SLIDE 14: Understanding Demo 4 - Real Life Application -->
+    <div class="slide" id="slide14">
+        <div class="phase-badge">📌 DEMONSTRATING UNDERSTANDING</div>
+        <h2>🏠 Painting a Wall</h2>
+        <button id="demo4AudioBtn" class="audio-btn">🔊 Listen to Problem</button>
         <div class="activity-box">
-            <strong>Problem:</strong> A rectangular wall is 10 m long and 4 m high. It has a triangular window (base 2 m, height 1.5 m).<br>
-            One litre of paint covers 8 m². <strong>How many litres are needed?</strong><br>
-            <input type="number" id="realInput" placeholder="Litres needed">
-            <button id="realBtn">Calculate</button>
-            <div id="realFeedback" class="feedback"></div>
+            A rectangular wall is 6 m × 4 m. A triangular window (base 2 m, height 1.5 m) will be cut out. Find paintable area.<br>
+            <input type="number" id="paintArea" placeholder="Area in m²">
+            <button id="paintBtn">Check</button>
+            <div id="paintFeedback" class="feedback"></div>
         </div>
-        <div class="formula-card">💡 Paint area = Wall area − Window area, then divide by coverage</div>
     </div>
 
-    <!-- Navigation Buttons -->
+    <!-- SLIDE 15: Understanding Demo 5 - Create Your Own -->
+    <div class="slide" id="slide15">
+        <div class="phase-badge">📌 DEMONSTRATING UNDERSTANDING</div>
+        <h2>✍️ Create Your Own Problem</h2>
+        <button id="demo5AudioBtn" class="audio-btn">🔊 Listen to Task</button>
+        <div class="activity-box">
+            Write a real-life area problem involving a rectangle and a triangle. Then solve it.<br>
+            <textarea id="createProblem" rows="4" cols="50" placeholder="Write your problem here..."></textarea><br>
+            <button id="submitProblemBtn">Submit Your Problem</button>
+            <div id="problemFeedback" class="feedback"></div>
+        </div>
+    </div>
+
+    <!-- SLIDE 16: Final Mastery & PDF Link -->
+    <div class="slide" id="slide16">
+        <div class="phase-badge">⭐ MASTERY ACHIEVED</div>
+        <h2>🎉 Congratulations, Area Expert!</h2>
+        <div class="formula-card">You can now calculate area of rectangles, parallelograms, and triangles!</div>
+        <button id="finalAudioBtn" class="audio-btn">🔊 Congratulations Message</button>
+        <div class="activity-box">
+            📚 <strong>Download Complete Notes:</strong><br>
+            <a href="https://github.com/ameral320-ai/Form-one-Area-of-regular-figures/blob/4507dc4950bc784c57ab1151993311d3586a9c7c/Area%20Mastery%20_%20Squares%20to%20Shapes%20_%20Tanzania%20Form%20One.pdf" target="_blank" class="pdf-link">📄 Download PDF Notes (Area Mastery)</a>
+            <p style="margin-top: 10px; font-size: 0.8rem; color: #888;">⚠️ If the link doesn't work, the PDF may not be publicly available. Please check the file path.</p>
+        </div>
+        <div class="intuition-box">
+            🌟 Share what you learned with your classmates and teachers!
+        </div>
+    </div>
+
     <div class="nav-buttons">
         <button id="prevBtn">◀ Previous</button>
-        <span class="page-indicator" id="slideCounter">Slide 1 / 15</span>
+        <span class="page-indicator" id="slideCounter">Slide 1 / 16</span>
         <button id="nextBtn">Next ▶</button>
     </div>
-    <footer>🎯 15-Slide Journey: Prior Knowledge → Develop → Design → Realise → Demonstrate Mastery | Tanzania Form One CBC</footer>
+    <footer>🎯 Audio-enabled Learning | Squares → Rectangles → Parallelogram → Triangle | Tanzania Form One CBC</footer>
 </div>
 
 <script>
     // ========== DRAW ALL CANVASES ==========
     
-    // Slide 1: Unit square (empty)
+    // Title decoration
+    const titleDec = document.getElementById('titleDecorCanvas');
+    if(titleDec) {
+        titleDec.width=200; titleDec.height=100;
+        let ctx = titleDec.getContext('2d');
+        ctx.fillStyle="#c8e6c9"; ctx.fillRect(0,0,200,100);
+        ctx.fillStyle="#2b5e3b"; ctx.font="bold 14px"; ctx.fillText("Rectangle",10,30);
+        ctx.fillText("Parallelogram",10,55); ctx.fillText("Triangle",10,80);
+    }
+
+    // Slide 2: Four shapes (NO labels)
+    const rectShape = document.getElementById('shapeRectCanvas');
+    if(rectShape) { rectShape.width=120; rectShape.height=80; let ctx=rectShape.getContext('2d'); ctx.fillStyle="#b9f6ca"; ctx.fillRect(20,15,80,50); ctx.strokeRect(20,15,80,50); }
+    
+    const paraShape = document.getElementById('shapeParaCanvas');
+    if(paraShape) { paraShape.width=120; paraShape.height=80; let ctx=paraShape.getContext('2d'); ctx.fillStyle="#ffecb3"; ctx.fillRect(0,0,120,80); ctx.beginPath(); ctx.moveTo(20,65); ctx.lineTo(100,65); ctx.lineTo(85,20); ctx.lineTo(35,20); ctx.fillStyle="#ffe082"; ctx.fill(); ctx.stroke(); }
+    
+    const triShape = document.getElementById('shapeTriCanvas');
+    if(triShape) { triShape.width=120; triShape.height=80; let ctx=triShape.getContext('2d'); ctx.fillStyle="#a5d6a7"; ctx.fillRect(0,0,120,80); ctx.beginPath(); ctx.moveTo(20,65); ctx.lineTo(100,65); ctx.lineTo(60,15); ctx.fillStyle="#81c784"; ctx.fill(); ctx.stroke(); }
+    
+    const squareShape = document.getElementById('shapeSquareCanvas');
+    if(squareShape) { squareShape.width=80; squareShape.height=80; let ctx=squareShape.getContext('2d'); ctx.fillStyle="#c8e6c9"; ctx.fillRect(10,10,60,60); ctx.strokeRect(10,10,60,60); }
+
+    // Slide 3: Unit Square and Grid
     const unitCanvas = document.getElementById('unitSquareCanvas');
     if(unitCanvas) {
-        unitCanvas.width = 120; unitCanvas.height = 120;
-        let ctx = unitCanvas.getContext('2d');
+        unitCanvas.width=120; unitCanvas.height=120;
+        let ctx=unitCanvas.getContext('2d');
         ctx.clearRect(0,0,120,120);
-        ctx.fillStyle = "#fff8e7";
-        ctx.fillRect(0,0,120,120);
-        ctx.strokeStyle = "#2e7d32";
-        ctx.lineWidth = 2;
-        ctx.strokeRect(10,10,100,100);
-        ctx.fillStyle = "#1e462a";
-        ctx.font = "bold 12px 'Segoe UI'";
-        ctx.fillText("1 unit", 40, 65);
-        ctx.fillText("Area = 1 sq unit", 25, 40);
+        ctx.fillStyle="#fff8e7"; ctx.fillRect(0,0,120,120);
+        ctx.strokeStyle="#2e7d32"; ctx.lineWidth=2; ctx.strokeRect(10,10,100,100);
+        ctx.fillStyle="#1e462a"; ctx.font="11px"; ctx.fillText("1 unit", 45, 70);
+        ctx.fillText("Area = 1 sq unit", 30, 100);
     }
-
-    // Slide 1 grid
+    
     const gridCanvas = document.getElementById('gridCanvas');
     if(gridCanvas) {
-        gridCanvas.width = 200; gridCanvas.height = 150;
-        let ctx = gridCanvas.getContext('2d');
-        ctx.fillStyle = "#c8e6c9";
-        ctx.fillRect(0,0,200,150);
-        for(let i=0; i<8; i++) for(let j=0; j<6; j++) {
-            ctx.strokeStyle = "#2e7d32";
-            ctx.strokeRect(i*25, j*25, 25, 25);
-            ctx.fillStyle = "#9ccc65";
-            ctx.fillRect(i*25+1, j*25+1, 23, 23);
-        }
-        ctx.fillStyle = "#1e462a";
-        ctx.fillText("8×6 = 48 squares", 55, 140);
+        gridCanvas.width=200; gridCanvas.height=150;
+        let ctx=gridCanvas.getContext('2d');
+        ctx.fillStyle="#c8e6c9"; ctx.fillRect(0,0,200,150);
+        for(let i=0;i<8;i++) for(let j=0;j<6;j++) { ctx.strokeRect(i*25, j*25, 25, 25); ctx.fillStyle="#9ccc65"; ctx.fillRect(i*25+1, j*25+1, 23, 23); }
+        ctx.fillStyle="#1e462a"; ctx.fillText("8×6 = 48 squares", 60, 140);
     }
 
-    // Shape canvases (no labels)
-    const shapeRect = document.getElementById('shapeRectCanvas');
-    if(shapeRect) { let ctx = shapeRect.getContext('2d'); shapeRect.width=140; shapeRect.height=90; ctx.fillStyle="#b9f6ca"; ctx.fillRect(20,15,100,60); ctx.strokeRect(20,15,100,60); }
-    const shapePara = document.getElementById('shapeParaCanvas');
-    if(shapePara) { let ctx = shapePara.getContext('2d'); shapePara.width=140; shapePara.height=90; ctx.fillStyle="#ffecb3"; ctx.fillRect(0,0,140,90); ctx.beginPath(); ctx.moveTo(25,70); ctx.lineTo(115,70); ctx.lineTo(95,25); ctx.lineTo(35,25); ctx.fillStyle="#ffe082"; ctx.fill(); ctx.stroke(); }
-    const shapeTri = document.getElementById('shapeTriCanvas');
-    if(shapeTri) { let ctx = shapeTri.getContext('2d'); shapeTri.width=140; shapeTri.height=90; ctx.fillStyle="#a5d6a7"; ctx.fillRect(0,0,140,90); ctx.beginPath(); ctx.moveTo(25,70); ctx.lineTo(115,70); ctx.lineTo(70,20); ctx.fillStyle="#81c784"; ctx.fill(); ctx.stroke(); }
-
-    // Rectangle grid
-    const rectGrid = document.getElementById('rectGridCanvas');
-    if(rectGrid) {
-        rectGrid.width=220; rectGrid.height=140;
-        let ctx = rectGrid.getContext('2d');
-        ctx.fillStyle="#c8e6c9"; ctx.fillRect(0,0,220,140);
-        for(let i=0;i<8;i++) for(let j=0;j<5;j++) { ctx.strokeRect(i*27.5, j*28, 27, 27); ctx.fillStyle="#a5d6a7"; ctx.fillRect(i*27.5+1, j*28+1, 25, 25); }
-        ctx.fillStyle="#1e462a"; ctx.fillText("8×5 = 40 squares", 60, 130);
+    // Slide 4: Rectangle canvas
+    const rectCanvasDev = document.getElementById('rectCanvas');
+    if(rectCanvasDev) {
+        rectCanvasDev.width=220; rectCanvasDev.height=130;
+        let ctx=rectCanvasDev.getContext('2d');
+        ctx.fillStyle="#c8e6c9"; ctx.fillRect(0,0,220,130);
+        for(let i=0;i<8;i++) for(let j=0;j<5;j++) { ctx.strokeRect(i*27.5, j*26, 27, 26); ctx.fillStyle="#a5d6a7"; ctx.fillRect(i*27.5+1, j*26+1, 25, 24); }
+        ctx.fillStyle="#1e462a"; ctx.fillText("8×5 = 40 unit squares", 50, 120);
     }
 
-    // Parallelogram flexible
-    const paraCanvas = document.getElementById('paraCanvasMain');
-    let paraCtx = paraCanvas.getContext('2d');
-    paraCanvas.width=280; paraCanvas.height=180;
-    let isRectangleMode = false;
-    function drawParallelogram() {
-        paraCtx.clearRect(0,0,280,180);
-        paraCtx.fillStyle="#fef5e0"; paraCtx.fillRect(0,0,280,180);
-        let stepX=280/15, base=12*stepX, hPx=4*stepX, yStart=35, offset=isRectangleMode?0:0.65*stepX*2.2;
-        let xL=25, xR=xL+base, xRT=xR+offset, xLT=xL+offset;
-        paraCtx.save(); paraCtx.beginPath(); paraCtx.moveTo(xL,yStart+hPx); paraCtx.lineTo(xR,yStart+hPx); paraCtx.lineTo(xRT,yStart); paraCtx.lineTo(xLT,yStart); paraCtx.closePath(); paraCtx.clip();
-        let cellW=base/12, cellH=hPx/4;
-        for(let row=0;row<4;row++) for(let col=0;col<12;col++) {
-            let sx=xL+col*cellW, sy=yStart+(3-row)*cellH, skew=isRectangleMode?0:((sy-yStart)/hPx)*offset;
-            let dx=sx+skew;
-            paraCtx.fillStyle="#c8e6c9"; paraCtx.fillRect(dx,sy,cellW-1,cellH-1);
-            paraCtx.strokeStyle="#2e7d32"; paraCtx.strokeRect(dx,sy,cellW-1,cellH-1);
-        }
+    // Slide 5: Parallelogram (flexible)
+    const paraCanvasMain = document.getElementById('paraCanvas');
+    let paraCtx = paraCanvasMain.getContext('2d');
+    paraCanvasMain.width=280; paraCanvasMain.height=180;
+    let isRectMode=false;
+    function drawPara() {
+        paraCtx.clearRect(0,0,280,180); paraCtx.fillStyle="#fef5e0"; paraCtx.fillRect(0,0,280,180);
+        let step=280/15, base=12*step, height=4*step, yStart=35, off=isRectMode?0:0.65*step*2.2;
+        let xL=25, xR=xL+base, xRT=xR+off, xLT=xL+off;
+        paraCtx.save(); paraCtx.beginPath(); paraCtx.moveTo(xL,yStart+height); paraCtx.lineTo(xR,yStart+height); paraCtx.lineTo(xRT,yStart); paraCtx.lineTo(xLT,yStart); paraCtx.closePath(); paraCtx.clip();
+        let cw=base/12, ch=height/4;
+        for(let r=0;r<4;r++) for(let c=0;c<12;c++) { let sx=xL+c*cw, sy=yStart+(3-r)*ch, skew=isRectMode?0:((sy-yStart)/height)*off, dx=sx+skew; paraCtx.fillStyle="#c8e6c9"; paraCtx.fillRect(dx,sy,cw-1,ch-1); paraCtx.strokeRect(dx,sy,cw-1,ch-1); }
         paraCtx.restore();
-        paraCtx.beginPath(); paraCtx.moveTo(xL,yStart+hPx); paraCtx.lineTo(xR,yStart+hPx); paraCtx.lineTo(xRT,yStart); paraCtx.lineTo(xLT,yStart); paraCtx.closePath(); paraCtx.stroke();
-        let area=48;
-        paraCtx.fillStyle="#1e462a"; paraCtx.fillText(`Area = ${area} sq units`, 150, 165);
-        document.getElementById('paraAreaLabel').innerHTML = `Area = 48 square units ${isRectangleMode?"(Rectangle!)":"(Parallelogram)"}`;
+        paraCtx.beginPath(); paraCtx.moveTo(xL,yStart+height); paraCtx.lineTo(xR,yStart+height); paraCtx.lineTo(xRT,yStart); paraCtx.lineTo(xLT,yStart); paraCtx.closePath(); paraCtx.stroke();
+        paraCtx.fillStyle="#1e462a"; paraCtx.fillText(`Area = 48 sq units`, 170, 165);
     }
-    document.getElementById('transformParaBtn')?.addEventListener('click',()=>{isRectangleMode=true;drawParallelogram();});
-    document.getElementById('resetParaBtn')?.addEventListener('click',()=>{isRectangleMode=false;drawParallelogram();});
-    drawParallelogram();
+    drawPara();
+    document.getElementById('transformParaBtn')?.addEventListener('click',()=>{isRectMode=true; drawPara();});
+    document.getElementById('resetParaBtn')?.addEventListener('click',()=>{isRectMode=false; drawPara();});
 
-    // Triangle square concept canvases
-    const triSquare = document.getElementById('triSquareCanvas');
-    if(triSquare) {
-        triSquare.width=200; triSquare.height=140;
-        let ctx=triSquare.getContext('2d');
-        ctx.fillStyle="#c8e6c9"; ctx.fillRect(0,0,200,140);
-        for(let i=0;i<8;i++) for(let j=0;j<5;j++) { ctx.strokeRect(i*25,j*28,25,28); ctx.fillStyle="#a5d6a7"; ctx.fillRect(i*25+1,j*28+1,23,26); }
-        ctx.fillStyle="#1e462a"; ctx.fillText("8×5 = 40 squares", 50, 130);
-    }
+    // Slide 6: Triangle canvases
+    const triFull = document.getElementById('triFullCanvas');
+    if(triFull) { triFull.width=180; triFull.height=130; let ctx=triFull.getContext('2d'); ctx.fillStyle="#c8e6c9"; ctx.fillRect(0,0,180,130); for(let i=0;i<9;i++) for(let j=0;j<6;j++) ctx.strokeRect(i*20,j*21,20,21); ctx.fillText("Rectangle: 48 sq", 40, 20); }
     const triHalf = document.getElementById('triHalfCanvas');
-    if(triHalf) {
-        triHalf.width=200; triHalf.height=140;
-        let ctx=triHalf.getContext('2d');
-        ctx.fillStyle="#fff8e7"; ctx.fillRect(0,0,200,140);
-        ctx.beginPath(); ctx.moveTo(0,140); ctx.lineTo(200,140); ctx.lineTo(0,0); ctx.fillStyle="#81c784"; ctx.fill(); ctx.stroke();
-        ctx.fillStyle="#1e462a"; ctx.fillText("Half = 20 squares", 50, 30);
+    if(triHalf) { triHalf.width=180; triHalf.height=130; let ctx=triHalf.getContext('2d'); ctx.fillStyle="#fff8e7"; ctx.fillRect(0,0,180,130); ctx.beginPath(); ctx.moveTo(0,130); ctx.lineTo(180,130); ctx.lineTo(0,0); ctx.fillStyle="#81c784"; ctx.fill(); ctx.fillStyle="#1e462a"; ctx.fillText("Triangle = 24 sq", 40, 30); }
+
+    // ========== AUDIO FUNCTIONS ==========
+    function speak(text) {
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-US';
+            utterance.rate = 0.9;
+            window.speechSynthesis.speak(utterance);
+        } else { alert("Browser does not support audio."); }
     }
 
-    // Demo canvases
-    const demoRect = document.getElementById('demoRectCanvas');
-    if(demoRect) { demoRect.width=200; demoRect.height=120; let ctx=demoRect.getContext('2d'); ctx.fillStyle="#b9f6ca"; ctx.fillRect(0,0,200,120); for(let i=0;i<12;i++) for(let j=0;j<6;j++) ctx.strokeRect(i*16.7,j*20,16,20); ctx.fillText("Area = 72 cm²", 60, 110); }
-    const demoPara = document.getElementById('demoParaCanvas');
-    if(demoPara) { demoPara.width=220; demoPara.height=140; let ctx=demoPara.getContext('2d'); ctx.fillStyle="#ffecb3"; ctx.fillRect(0,0,220,140); ctx.beginPath(); ctx.moveTo(20,110); ctx.lineTo(200,110); ctx.lineTo(175,30); ctx.lineTo(45,30); ctx.fillStyle="#ffe082"; ctx.fill(); ctx.stroke(); ctx.fillText("Area = 84 m²", 80, 130); }
-    const demoTri = document.getElementById('demoTriCanvas');
-    if(demoTri) { demoTri.width=200; demoTri.height=120; let ctx=demoTri.getContext('2d'); ctx.fillStyle="#a5d6a7"; ctx.fillRect(0,0,200,120); ctx.beginPath(); ctx.moveTo(25,95); ctx.lineTo(175,95); ctx.lineTo(100,25); ctx.fillStyle="#81c784"; ctx.fill(); ctx.stroke(); ctx.fillText("Area = 50 cm²", 65, 110); }
-    const compareRectC = document.getElementById('compareRect');
-    if(compareRectC) { let ctx=compareRectC.getContext('2d'); compareRectC.width=120; compareRectC.height=80; ctx.fillStyle="#b9f6ca"; ctx.fillRect(10,10,80,50); ctx.fillText("9×5", 45, 50); }
-    const compareParaC = document.getElementById('comparePara');
-    if(compareParaC) { let ctx=compareParaC.getContext('2d'); compareParaC.width=120; compareParaC.height=80; ctx.fillStyle="#ffecb3"; ctx.fillRect(0,0,120,80); ctx.beginPath(); ctx.moveTo(15,65); ctx.lineTo(105,65); ctx.lineTo(90,20); ctx.lineTo(30,20); ctx.fillStyle="#ffe082"; ctx.fill(); ctx.fillText("10×4.5", 40, 55); }
-    const compareTriC = document.getElementById('compareTri');
-    if(compareTriC) { let ctx=compareTriC.getContext('2d'); compareTriC.width=120; compareTriC.height=80; ctx.fillStyle="#a5d6a7"; ctx.fillRect(0,0,120,80); ctx.beginPath(); ctx.moveTo(15,65); ctx.lineTo(105,65); ctx.lineTo(60,15); ctx.fillStyle="#81c784"; ctx.fill(); ctx.fillText("15×6", 45, 55); }
-    const realCanvas = document.getElementById('realCanvas');
-    if(realCanvas) {
-        realCanvas.width=220; realCanvas.height=160;
-        let ctx=realCanvas.getContext('2d');
-        ctx.fillStyle="#b9f6ca"; ctx.fillRect(20,20,180,100);
-        ctx.beginPath(); ctx.moveTo(60,120); ctx.lineTo(100,120); ctx.lineTo(80,70); ctx.fillStyle="#fff"; ctx.fill(); ctx.stroke();
-        ctx.fillStyle="#1e462a"; ctx.fillText("Wall 10×4", 70, 145);
-    }
+    // Attach audio buttons
+    document.getElementById('titleAudioBtn')?.addEventListener('click',()=>speak("Welcome to The Area of Regular Figures. You will learn to calculate area of rectangles, parallelograms, and triangles using unit squares."));
+    document.getElementById('slide2AudioBtn')?.addEventListener('click',()=>speak("Look at these four shapes. Can you name them? A rectangle, a parallelogram, a triangle, and a square."));
+    document.getElementById('slide3AudioBtn')?.addEventListener('click',()=>speak("The unit square is the building block of area. A unit square has side length one unit and area one square unit. Area is the number of unit squares that fit inside a shape."));
+    document.getElementById('rectAudioBtn')?.addEventListener('click',()=>speak("Rectangle area equals length times width. Example: length 8 centimeters, width 5 centimeters gives area 40 square centimeters."));
+    document.getElementById('paraAudioBtn')?.addEventListener('click',()=>speak("Parallelogram area equals base times height. You can transform a parallelogram into a rectangle by cutting and sliding a triangle. The area stays the same."));
+    document.getElementById('triAudioBtn')?.addEventListener('click',()=>speak("A triangle is exactly half of a rectangle with the same base and height. So triangle area equals half times base times height."));
+    document.getElementById('gardenAudioBtn')?.addEventListener('click',()=>speak("Garden problem: A rectangular garden ten by six meters. A triangular flower bed base four, height three. Find the remaining area for vegetables."));
+    document.getElementById('playgroundAudioBtn')?.addEventListener('click',()=>speak("Playground challenge: Calculate total area of a playground with rectangle, parallelogram, and triangle sections."));
+    document.getElementById('farmerAudioBtn')?.addEventListener('click',()=>speak("Farmer Juma's field: rectangular, with triangular maize section and parallelogram vegetable section. Find area for beans."));
+    document.getElementById('costAudioBtn')?.addEventListener('click',()=>speak("Construction cost: A rectangular wall with triangular window. Painting cost five thousand shillings per square meter. Calculate total cost."));
+    document.getElementById('demo1AudioBtn')?.addEventListener('click',()=>speak("Match each shape with its correct area formula."));
+    document.getElementById('demo2AudioBtn')?.addEventListener('click',()=>speak("Find the missing side: rectangle area fifty six, length eight. Find width."));
+    document.getElementById('demo3AudioBtn')?.addEventListener('click',()=>speak("Compare areas: Triangle base ten height eight, versus parallelogram base eight height five. Which is larger?"));
+    document.getElementById('demo4AudioBtn')?.addEventListener('click',()=>speak("A rectangular wall, six by four meters. A triangular window base two, height one point five. Find paintable area."));
+    document.getElementById('demo5AudioBtn')?.addEventListener('click',()=>speak("Create your own real-life area problem involving a rectangle and a triangle. Then solve it."));
+    document.getElementById('finalAudioBtn')?.addEventListener('click',()=>speak("Congratulations! You have mastered area calculations for rectangles, parallelograms, and triangles. Well done!"));
 
-    // ========== ACTIVITY HANDLERS ==========
+    // ========== ACTIVITY CHECK FUNCTIONS ==========
     function showFeedback(id, isCorrect, correctMsg, wrongMsg) {
         let fb = document.getElementById(id);
         fb.style.display = "block";
         fb.innerHTML = isCorrect ? "✅ " + correctMsg : "❌ " + wrongMsg;
-        fb.className = isCorrect ? "feedback feedback-correct" : "feedback feedback-wrong";
+        fb.className = "feedback " + (isCorrect ? "feedback-correct" : "feedback-wrong");
     }
 
-    // Existing handlers
-    document.getElementById('countSquaresBtn')?.addEventListener('click',()=>{ let a=parseInt(document.getElementById('countSquaresInput').value); showFeedback('countSquaresFeedback', a===48, "Correct! 8×6=48 squares.", "48 squares (8 columns × 6 rows)."); });
-    document.getElementById('shapeCheckBtn')?.addEventListener('click',()=>{ let a=document.getElementById('shapeAName').value.toLowerCase(); let b=document.getElementById('shapeBName').value.toLowerCase(); let c=document.getElementById('shapeCName').value.toLowerCase(); showFeedback('shapeFeedback', (a.includes('rect')&&b.includes('parallelogram')&&c.includes('tri')), "Perfect!", "A=Rectangle, B=Parallelogram, C=Triangle"); });
-    document.getElementById('rectCheckBtn')?.addEventListener('click',()=>{ let a=parseInt(document.getElementById('rectAnswer').value); showFeedback('rectFeedback', a===40, "8×5=40 cm²", "Area = length×width = 40 cm²"); });
-    document.getElementById('paraCheckBtn')?.addEventListener('click',()=>{ let a=parseInt(document.getElementById('paraAnswer').value); showFeedback('paraFeedback', a===36, "9×4=36 m²", "Area = base×height = 36 m²"); });
-    document.getElementById('triCheckBtn')?.addEventListener('click',()=>{ let a=parseInt(document.getElementById('triAnswer').value); showFeedback('triFeedback', a===36, "½×12×6=36 cm²", "Triangle area = ½×base×height = 36 cm²"); });
-    document.getElementById('gardenBtn')?.addEventListener('click',()=>{ let a=parseInt(document.getElementById('gardenInput').value); showFeedback('gardenFeedback', a===54, "Remaining = 54 m²", "Rect=60, triangle=6, remaining=54 m²"); });
-    document.getElementById('playgroundBtn')?.addEventListener('click',()=>{ let a=parseInt(document.getElementById('playgroundInput').value); showFeedback('playgroundFeedback', a===58, "Total = 58 m²", "Lawn=40, sandpit=12, flower=6, total=58 m²"); });
-    document.getElementById('farmerBtn')?.addEventListener('click',()=>{ let a=parseInt(document.getElementById('farmerInput').value); showFeedback('farmerFeedback', a===700, "Beans = 700 m²", "Total=1000, maize=150, veg=150, beans=700 m²"); });
-    document.getElementById('costBtn')?.addEventListener('click',()=>{ let a=parseInt(document.getElementById('costInput').value); showFeedback('costFeedback', a===225000, "Cost = 225,000 Tsh", "Paint area=45 m² ×5000=225,000 Tsh"); });
-    document.getElementById('finishBtn')?.addEventListener('click',()=>{ let r=document.getElementById('reflectionInput').value.trim(); showFeedback('completeFeedback', r.length>=5, "Amazing! You're an Area Expert!", "Please write your reflection."); });
+    // Slide 2: Shape names
+    document.getElementById('shapeCheckBtn')?.addEventListener('click', () => {
+        let a = document.getElementById('shapeAName').value.toLowerCase().trim();
+        let b = document.getElementById('shapeBName').value.toLowerCase().trim();
+        let c = document.getElementById('shapeCName').value.toLowerCase().trim();
+        let d = document.getElementById('shapeDName').value.toLowerCase().trim();
+        let correct = (a === 'rectangle' || a === 'rect') && 
+                      (b === 'parallelogram' || b === 'parallelogram') && 
+                      (c === 'triangle' || c === 'tri') &&
+                      (d === 'square');
+        showFeedback('shapeFeedback', correct,
+            "Perfect! A=Rectangle, B=Parallelogram, C=Triangle, D=Square.",
+            "Shape A=Rectangle, B=Parallelogram, C=Triangle, D=Square.");
+    });
 
-    // NEW DEMO HANDLERS
-    document.getElementById('demoRectBtn')?.addEventListener('click',()=>{ let a=parseInt(document.getElementById('demoRectInput').value); showFeedback('demoRectFeedback', a===12, "Correct! Length = 12 cm (72÷6=12)", "Length = Area ÷ width = 72÷6=12 cm"); });
-    document.getElementById('demoParaBtn')?.addEventListener('click',()=>{ let a=parseInt(document.getElementById('demoParaInput').value); showFeedback('demoParaFeedback', a===7, "Correct! Height = 7 m (84÷12=7)", "Height = Area ÷ base = 84÷12=7 m"); });
-    document.getElementById('demoTriBtn')?.addEventListener('click',()=>{ let a=parseInt(document.getElementById('demoTriInput').value); showFeedback('demoTriFeedback', a===10, "Correct! Base = 10 cm (2×50÷10=10)", "Base = (2×Area)÷height = (100)÷10=10 cm"); });
-    document.getElementById('compareBtn')?.addEventListener('click',()=>{ let a=document.getElementById('compareInput').value.toLowerCase(); showFeedback('compareFeedback', a.includes('triangle'), "Correct! Triangle area = 45 m² (largest)", "Rectangle=45, Parallelogram=45, Triangle=45? Wait calculate: Rect=45, Para=45, Tri=45 — they are EQUAL! All 45 m²!"); });
-    document.getElementById('realBtn')?.addEventListener('click',()=>{ let a=parseInt(document.getElementById('realInput').value); showFeedback('realFeedback', a===5, "Correct! 5 litres needed", "Wall=40 m², window=1.5 m², paint=38.5 m² → 38.5÷8 ≈ 4.8 → 5 litres"); });
+    // Slide 3: Count squares
+    document.getElementById('countSquaresBtn')?.addEventListener('click', () => {
+        let ans = parseInt(document.getElementById('countSquaresInput').value);
+        showFeedback('countSquaresFeedback', ans === 48,
+            "Correct! 8×6 = 48 unit squares.",
+            "Count: 8 columns × 6 rows = 48 squares.");
+    });
+
+    // Other checks
+    document.getElementById('rectCheckBtn')?.addEventListener('click', () => { let a=parseInt(document.getElementById('rectAnswer').value); showFeedback('rectFeedback', a===40, "8×5=40 cm².", "Area = 8×5 = 40 cm²."); });
+    document.getElementById('paraCheckBtn')?.addEventListener('click', () => { let a=parseInt(document.getElementById('paraAnswer').value); showFeedback('paraFeedback', a===36, "9×4=36 m².", "Area = 9×4 = 36 m²."); });
+    document.getElementById('triCheckBtn')?.addEventListener('click', () => { let a=parseInt(document.getElementById('triAnswer').value); showFeedback('triFeedback', a===36, "½×12×6=36 cm².", "Area = ½×12×6 = 36 cm²."); });
+    document.getElementById('gardenBtn')?.addEventListener('click', () => { let a=parseInt(document.getElementById('gardenInput').value); showFeedback('gardenFeedback', a===54, "Remaining = 54 m².", "Rect=60, triangle=6, remaining=54 m²."); });
+    document.getElementById('playgroundBtn')?.addEventListener('click', () => { let a=parseInt(document.getElementById('playgroundInput').value); showFeedback('playgroundFeedback', a===58, "Total = 58 m².", "Lawn=40, sandpit=12, flower=6, total=58 m²."); });
+    document.getElementById('farmerBtn')?.addEventListener('click', () => { let a=parseInt(document.getElementById('farmerInput').value); showFeedback('farmerFeedback', a===700, "Beans = 700 m².", "Total=1000, maize=150, veg=150, beans=700 m²."); });
+    document.getElementById('costBtn')?.addEventListener('click', () => { let a=parseInt(document.getElementById('costInput').value); showFeedback('costFeedback', a===225000, "Cost = 225,000 Tsh.", "Paint area=45 m², cost=45×5000=225,000 Tsh."); });
+    document.getElementById('matchBtn')?.addEventListener('click', () => { let r=document.getElementById('matchRect').value.toUpperCase(), p=document.getElementById('matchPara').value.toUpperCase(), t=document.getElementById('matchTri').value.toUpperCase(); showFeedback('matchFeedback', r==='A' && p==='B' && t==='C', "Correct formulas!", "Rectangle:A, Parallelogram:B, Triangle:C"); });
+    document.getElementById('missingBtn')?.addEventListener('click', () => { let a=parseInt(document.getElementById('missingWidth').value); showFeedback('missingFeedback', a===7, "Width = 7 cm.", "56=8×w → w=7 cm."); });
+    document.getElementById('compareBtn')?.addEventListener('click', () => { let a=document.getElementById('compareArea').value.toUpperCase(); showFeedback('compareFeedback', a==='A' || a==='TRIANGLE', "Triangle area=40, Parallelogram=40 → Equal!", "Triangle:40, Parallelogram:40 → They are equal!"); });
+    document.getElementById('paintBtn')?.addEventListener('click', () => { let a=parseFloat(document.getElementById('paintArea').value); showFeedback('paintFeedback', Math.abs(a-22.5)<0.1, "Paintable area = 22.5 m².", "Wall=24, window=1.5, paintable=22.5 m²."); });
+    document.getElementById('submitProblemBtn')?.addEventListener('click', () => { let p=document.getElementById('createProblem').value.trim(); showFeedback('problemFeedback', p.length>10, "Great problem! You are an Area Designer!", "Write a complete problem with rectangle and triangle."); });
 
     // ========== SLIDESHOW NAVIGATION ==========
     let currentSlide = 1;
-    const totalSlides = 15;
+    const totalSlides = 16;
     const slides = document.querySelectorAll('.slide');
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
     const counter = document.getElementById('slideCounter');
-
-    function updateSlides() {
-        slides.forEach((slide, index) => { slide.classList.toggle('active', index + 1 === currentSlide); });
-        counter.innerText = `Slide ${currentSlide} / ${totalSlides}`;
-    }
-    prevBtn.addEventListener('click', () => { if(currentSlide > 1) { currentSlide--; updateSlides(); } });
-    nextBtn.addEventListener('click', () => { if(currentSlide < totalSlides) { currentSlide++; updateSlides(); } else { alert("🎉 You've completed all 15 slides! You have mastered area and demonstrated your understanding!"); } });
+    function updateSlides() { slides.forEach((s,i)=>s.classList.toggle('active',i+1===currentSlide)); counter.innerText = `Slide ${currentSlide} / ${totalSlides}`; }
+    prevBtn.addEventListener('click', () => { if(currentSlide>1) { currentSlide--; updateSlides(); } });
+    nextBtn.addEventListener('click', () => { if(currentSlide<totalSlides) { currentSlide++; updateSlides(); } else { alert("🎓 You've completed all slides! You are an Area Expert!"); } });
     updateSlides();
-
-    // Enter key support
-    document.querySelectorAll('input').forEach(input => {
-        input.addEventListener('keypress', (e) => { if(e.key === 'Enter') { e.preventDefault(); const btns = input.parentElement.querySelectorAll('button'); if(btns.length) btns[0].click(); } });
-    });
 </script>
 </body>
 </html>
+```
