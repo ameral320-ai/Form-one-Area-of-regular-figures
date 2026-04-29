@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Area of Regular Figures | True Parallelogram | Tanzania Form One</title>
+    <title>Area of Regular Figures | Clean Parallelogram & Triangle | Tanzania Form One</title>
     <style>
         * {
             margin: 0;
@@ -234,15 +234,15 @@
         <button id="titleAudioBtn" class="audio-btn">🔊 Listen to Introduction</button>
     </div>
 
-    <!-- SLIDE 2: Four Figures (ABSOLUTELY NO NAMES, NO LABELS) -->
+    <!-- SLIDE 2: Four Figures (NO NAMES, clean shapes) -->
     <div class="slide" id="slide2">
         <div class="phase-badge">🔍 PHASE 1: PRIOR KNOWLEDGE</div>
         <h2>🔎 What Are These Shapes?</h2>
         <div class="figure-grid">
-            <div class="fig-card"><canvas id="shapeRectCanvas" width="130" height="90"></canvas><p style="margin-top:5px;">Shape A</p></div>
-            <div class="fig-card"><canvas id="shapeParaCanvas" width="130" height="90"></canvas><p style="margin-top:5px;">Shape B</p></div>
-            <div class="fig-card"><canvas id="shapeTriCanvas" width="130" height="90"></canvas><p style="margin-top:5px;">Shape C</p></div>
-            <div class="fig-card"><canvas id="shapeSquareCanvas" width="90" height="90"></canvas><p style="margin-top:5px;">Shape D</p></div>
+            <div class="fig-card"><canvas id="shapeRectCanvas" width="130" height="90"></canvas><p>Shape A</p></div>
+            <div class="fig-card"><canvas id="shapeParaCanvas" width="130" height="90"></canvas><p>Shape B</p></div>
+            <div class="fig-card"><canvas id="shapeTriCanvas" width="130" height="90"></canvas><p>Shape C</p></div>
+            <div class="fig-card"><canvas id="shapeSquareCanvas" width="90" height="90"></canvas><p>Shape D</p></div>
         </div>
         <div class="activity-box">
             <strong>✏️ Name Each Shape (No labels shown!)</strong><br>
@@ -287,7 +287,7 @@
         <button id="rectAudioBtn" class="audio-btn">🔊 Listen to Formula</button>
     </div>
 
-    <!-- SLIDE 5: TRUE PARALLELOGRAM (exactly parallel sides) with transformation -->
+    <!-- SLIDE 5: TRUE PARALLELOGRAM (clean, no extra symbols) -->
     <div class="slide" id="slide5">
         <div class="phase-badge">📈 PHASE 2: DEVELOP COMPETENCE</div>
         <h2>📐 Parallelogram Area = base × height</h2>
@@ -298,7 +298,7 @@
         </div>
         <div class="intuition-box">
             💡 <strong>Notice:</strong> The two side lines are parallel to each other. A parallelogram is like a slanted rectangle.<br>
-            Cutting a triangle from one side and sliding it to the other makes a rectangle with same area!
+            Cutting a triangle from one side and sliding it to the other makes a rectangle with the same area!
         </div>
         <div class="activity-box">
             <strong>Practice: Base = 9 m, Height = 4 m</strong><br>
@@ -308,13 +308,13 @@
         <button id="paraAudioBtn" class="audio-btn">🔊 Listen to Parallelogram</button>
     </div>
 
-    <!-- SLIDE 6: TRIANGLE -->
+    <!-- SLIDE 6: TRIANGLE (all three sides shown clearly) -->
     <div class="slide" id="slide6">
         <div class="phase-badge">📈 PHASE 2: DEVELOP COMPETENCE</div>
         <h2>🔺 Triangle = ½ × base × height</h2>
         <div class="figure-grid">
             <div class="fig-card"><canvas id="triFullCanvas" width="180" height="130"></canvas><p>Rectangle: 8×6 = 48 squares</p></div>
-            <div class="fig-card"><canvas id="triHalfCanvas" width="180" height="130"></canvas><p>Triangle = Half = 24 squares</p></div>
+            <div class="fig-card"><canvas id="triHalfCanvas" width="180" height="130"></canvas><p>Triangle = Half = 24 squares (all sides shown)</p></div>
         </div>
         <div class="activity-box">
             <strong>Practice: Base = 12 cm, Height = 6 cm</strong><br>
@@ -349,7 +349,7 @@
     </div>
 
     <div class="nav-buttons"><button id="prevBtn">◀ Previous</button><span class="page-indicator" id="slideCounter">Slide 1 / 16</span><button id="nextBtn">Next ▶</button></div>
-    <footer>🎯 True Parallelogram (Parallel Sides) | No Labels | Audio | Tanzania Form One CBC</footer>
+    <footer>🎯 Clean Parallelogram (Parallel Sides) | Triangle with All Sides | Audio | Tanzania Form One CBC</footer>
 </div>
 
 <script>
@@ -359,12 +359,12 @@
     const titleCtx = document.getElementById('titleDecorCanvas')?.getContext('2d');
     if(titleCtx) { titleCtx.canvas.width=200; titleCtx.canvas.height=100; titleCtx.fillStyle="#c8e6c9"; titleCtx.fillRect(0,0,200,100); titleCtx.fillStyle="#2b5e3b"; titleCtx.font="bold 12px"; titleCtx.fillText("Rectangle",10,30); titleCtx.fillText("Parallelogram",10,55); titleCtx.fillText("Triangle",10,80); }
 
-    // SLIDE 2: Four shapes - NO NAMES, just clear geometric figures
+    // SLIDE 2: Four shapes - NO NAMES, clean figures
     // Shape A: Rectangle
     const rectA = document.getElementById('shapeRectCanvas')?.getContext('2d');
     if(rectA) { rectA.canvas.width=130; rectA.canvas.height=90; rectA.fillStyle="#b9f6ca"; rectA.fillRect(25,20,80,50); rectA.strokeRect(25,20,80,50); }
     
-    // Shape B: TRUE PARALLELOGRAM (exactly parallel side lines, no trapezoid)
+    // Shape B: TRUE PARALLELOGRAM (clean, no extra symbols)
     const paraB = document.getElementById('shapeParaCanvas')?.getContext('2d');
     if(paraB) {
         paraB.canvas.width=130; paraB.canvas.height=90;
@@ -373,7 +373,6 @@
         paraB.beginPath();
         // TRUE PARALLELOGRAM: bottom edge (20,70) to (100,70)
         // top edge shifted right by 20px: (40,20) to (120,20)
-        // left side: (20,70) to (40,20) — parallel to right side: (100,70) to (120,20)
         paraB.moveTo(20,70);    // bottom left
         paraB.lineTo(100,70);   // bottom right
         paraB.lineTo(120,20);   // top right
@@ -384,16 +383,25 @@
         paraB.strokeStyle="#e67e22";
         paraB.lineWidth=2;
         paraB.stroke();
-        // Draw small double arrows on sides to indicate parallelism (optional teaching aid)
-        paraB.beginPath(); paraB.moveTo(25,60); paraB.lineTo(35,60); paraB.moveTo(28,63); paraB.lineTo(28,57); paraB.stroke();
-        paraB.beginPath(); paraB.moveTo(105,60); paraB.lineTo(115,60); paraB.moveTo(108,63); paraB.lineTo(108,57); paraB.stroke();
-        paraB.beginPath(); paraB.moveTo(35,25); paraB.lineTo(45,25); paraB.moveTo(38,28); paraB.lineTo(38,22); paraB.stroke();
-        paraB.beginPath(); paraB.moveTo(115,25); paraB.lineTo(125,25); paraB.moveTo(118,28); paraB.lineTo(118,22); paraB.stroke();
     }
     
-    // Shape C: Triangle
+    // Shape C: Triangle (all 3 sides clearly shown)
     const triC = document.getElementById('shapeTriCanvas')?.getContext('2d');
-    if(triC) { triC.canvas.width=130; triC.canvas.height=90; triC.fillStyle="#a5d6a7"; triC.fillRect(0,0,130,90); triC.beginPath(); triC.moveTo(20,75); triC.lineTo(110,75); triC.lineTo(65,20); triC.fillStyle="#81c784"; triC.fill(); triC.stroke(); }
+    if(triC) { 
+        triC.canvas.width=130; triC.canvas.height=90; 
+        triC.fillStyle="#a5d6a7"; 
+        triC.fillRect(0,0,130,90); 
+        triC.beginPath(); 
+        triC.moveTo(20,75);   // bottom left
+        triC.lineTo(110,75);  // bottom right
+        triC.lineTo(65,20);   // top
+        triC.closePath();     // draws the third side automatically
+        triC.fillStyle="#81c784"; 
+        triC.fill(); 
+        triC.strokeStyle="#2b5e3b";
+        triC.lineWidth=2;
+        triC.stroke(); 
+    }
     
     // Shape D: Square
     const sqD = document.getElementById('shapeSquareCanvas')?.getContext('2d');
@@ -410,7 +418,7 @@
     const rectDev = document.getElementById('rectCanvas')?.getContext('2d');
     if(rectDev) { rectDev.canvas.width=220; rectDev.canvas.height=130; rectDev.fillStyle="#c8e6c9"; rectDev.fillRect(0,0,220,130); for(let i=0;i<8;i++) for(let j=0;j<5;j++) { rectDev.strokeRect(i*27.5, j*26, 27, 26); rectDev.fillStyle="#a5d6a7"; rectDev.fillRect(i*27.5+1, j*26+1, 25, 24); } rectDev.fillStyle="#1e462a"; rectDev.fillText("8×5 = 40 squares", 70, 120); }
 
-    // SLIDE 5: Interactive TRUE PARALLELOGRAM (parallel sides, transformable)
+    // SLIDE 5: Interactive TRUE PARALLELOGRAM (clean, transformable)
     const paraMain = document.getElementById('paraCanvas');
     let paraMainCtx = paraMain.getContext('2d');
     paraMain.width=350; paraMain.height=200;
@@ -436,7 +444,7 @@
         let pts = isRectMode ? rectVertices : paraVertices;
         paraMainCtx.beginPath();
         paraMainCtx.moveTo(pts[0].x, pts[0].y);
-        pts.forEach(p => paraMainCtx.lineTo(p.x, p.y));
+        for(let i=1; i<pts.length; i++) paraMainCtx.lineTo(pts[i].x, pts[i].y);
         paraMainCtx.closePath();
         paraMainCtx.fillStyle = "#c8e6c9";
         paraMainCtx.fill();
@@ -460,7 +468,7 @@
             }
         }
         
-        let area = base/25 * height/25; // area in square units
+        let area = base/25 * height/25; // area in square units (approx)
         paraMainCtx.fillStyle = "#1e462a";
         paraMainCtx.font = "bold 14px";
         paraMainCtx.fillText(`Area = base × height = ${area.toFixed(0)} sq units`, 100, 185);
@@ -469,11 +477,32 @@
     document.getElementById('transformParaBtn')?.addEventListener('click',()=>{isRectMode=true; drawMainShape();});
     document.getElementById('resetParaBtn')?.addEventListener('click',()=>{isRectMode=false; drawMainShape();});
 
-    // SLIDE 6: Triangle
+    // SLIDE 6: Triangle canvases (all sides shown clearly)
     const triFull = document.getElementById('triFullCanvas')?.getContext('2d');
-    if(triFull) { triFull.canvas.width=180; triFull.canvas.height=130; triFull.fillStyle="#c8e6c9"; triFull.fillRect(0,0,180,130); for(let i=0;i<9;i++) for(let j=0;j<6;j++) triFull.strokeRect(i*20,j*21,20,21); triFull.fillText("Rectangle: 48 sq", 40, 20); }
+    if(triFull) { 
+        triFull.canvas.width=180; triFull.canvas.height=130; 
+        triFull.fillStyle="#c8e6c9"; triFull.fillRect(0,0,180,130); 
+        for(let i=0;i<9;i++) for(let j=0;j<6;j++) triFull.strokeRect(i*20,j*21,20,21); 
+        triFull.fillStyle="#1e462a"; triFull.fillText("Rectangle: 48 sq", 40, 20); 
+    }
+    
     const triHalfCtx = document.getElementById('triHalfCanvas')?.getContext('2d');
-    if(triHalfCtx) { triHalfCtx.canvas.width=180; triHalfCtx.canvas.height=130; triHalfCtx.fillStyle="#fff8e7"; triHalfCtx.fillRect(0,0,180,130); triHalfCtx.beginPath(); triHalfCtx.moveTo(0,130); triHalfCtx.lineTo(180,130); triHalfCtx.lineTo(0,0); triHalfCtx.fillStyle="#81c784"; triHalfCtx.fill(); triHalfCtx.fillStyle="#1e462a"; triHalfCtx.fillText("Triangle = 24 sq", 40, 30); }
+    if(triHalfCtx) { 
+        triHalfCtx.canvas.width=180; triHalfCtx.canvas.height=130; 
+        triHalfCtx.fillStyle="#fff8e7"; triHalfCtx.fillRect(0,0,180,130); 
+        triHalfCtx.beginPath(); 
+        triHalfCtx.moveTo(0,130); 
+        triHalfCtx.lineTo(180,130); 
+        triHalfCtx.lineTo(0,0); 
+        triHalfCtx.closePath();  // This ensures all three sides are drawn
+        triHalfCtx.fillStyle="#81c784"; 
+        triHalfCtx.fill(); 
+        triHalfCtx.strokeStyle="#2b5e3b";
+        triHalfCtx.lineWidth=2;
+        triHalfCtx.stroke(); 
+        triHalfCtx.fillStyle="#1e462a"; 
+        triHalfCtx.fillText("Triangle = 24 sq", 40, 30); 
+    }
 
     // ========== AUDIO & CHECK FUNCTIONS ==========
     function speak(t) { if(window.speechSynthesis){window.speechSynthesis.cancel(); let u=new SpeechSynthesisUtterance(t); u.lang='en-US'; u.rate=0.9; window.speechSynthesis.speak(u);} }
